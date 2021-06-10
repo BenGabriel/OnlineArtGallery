@@ -7,7 +7,7 @@ import React, { useState, useContext } from "react";
 import AuthContext from "../../context/AuthContext/AuthContext";
 
 const UpdateUser = () => {
-  const { artist } = useContext(AuthContext);
+  const { artist, getArtist } = useContext(AuthContext);
 
   // console.log(artist);
 
@@ -92,6 +92,7 @@ const UpdateUser = () => {
           options
         );
         setLoading(false);
+        getArtist();
         Toast.success("Profile Updated");
         history.push("/dashboard");
       } catch (error) {
@@ -103,6 +104,7 @@ const UpdateUser = () => {
         .then((data) => {
           console.log(data);
           setLoading(false);
+          getArtist();
           Toast.success("Profile Updated");
           history.push("/dashboard");
         })
