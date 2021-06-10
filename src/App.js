@@ -18,11 +18,7 @@ import AuthState from "./context/AuthContext/AuthState";
 import ArtItem from "./components/art/ArtItem";
 import ArtistProfile from "./components/art/ArtistProfile";
 import PrivateRoute from "./components/routes/PrivateRoute";
-import setToken from "./components/routes/SetToken";
 
-if (localStorage.token) {
-  setToken(localStorage.token);
-}
 function App() {
   return (
     <AuthState>
@@ -38,13 +34,17 @@ function App() {
               <Route path="/photography" component={Photography} />
               <Route path="/paintings" component={Paintings} />
               <Route path="/signup" component={Signup} />
-              <Route path="/login" component={Login} />
+              <Route path="/art/:id" component={ArtItem} />
+              <Route path="/artist/:id" component={ArtistProfile} />
               <PrivateRoute path="/addpost" component={AddPost} />
               <PrivateRoute path="/updateuser" component={UpdateUser} />
               <PrivateRoute path="/dashboard" exact component={Dashboard} />
-              <PrivateRoute path="/dashboard/:id" component={DashboardItem} />
-              <Route path="/art/:id" component={ArtItem} />
-              <Route path="/artist/:id" component={ArtistProfile} />
+              <PrivateRoute
+                path="/dashboard/:id"
+                exact
+                component={DashboardItem}
+              />
+              <Route path="/login" component={Login} />
             </Switch>
           </div>
         </Router>

@@ -83,7 +83,7 @@
 .sidebar center {
   margin: 50px 0 100px 0;
   position: relative;
-  left: -200px;
+  left: -400px;
   transition: 0.5s;
   transition-property: left;
 }

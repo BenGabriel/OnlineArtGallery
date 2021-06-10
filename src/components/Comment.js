@@ -8,10 +8,12 @@ const Comment = ({ controlClick, commentId, getSinglePost }) => {
     name: "",
     comment: "",
   });
+  const [loading, setLoading] = useState(false);
 
   const { name, comment } = comments;
   const makeComment = (e) => {
     e.preventDefault();
+    setLoading(true);
     if (name === "" || comment === "") {
       return Toast.error("No field should be empty");
     }
@@ -31,14 +33,17 @@ const Comment = ({ controlClick, commentId, getSinglePost }) => {
         if (getSinglePost !== undefined) {
           getSinglePost();
           Toast.success("Comment Submitted");
+          setLoading(false);
           controlClick();
         } else {
           Toast.success("Comment Submitted");
+          setLoading(false);
           controlClick();
         }
       })
       .catch((err) => {
         console.log(err);
+        setLoading(false);
         Toast.error(`${err.message}`);
       });
   };
@@ -74,7 +79,9 @@ const Comment = ({ controlClick, commentId, getSinglePost }) => {
         value={comment}
         onChange={handlePostChange}
       />
-      <button onClick={makeComment}>Comment</button>
+      <button onClick={makeComment} disabled={loading}>
+        Comment
+      </button>
     </div>
   );
 };

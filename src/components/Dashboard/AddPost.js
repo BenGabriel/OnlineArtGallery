@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Container } from "./Helper";
+import { Container, Toast } from "./Helper";
 import "./AddPost.css";
 import ArtistContext from "../../context/ArtistContext/ArtistContext";
 
@@ -12,8 +12,7 @@ const AddPost = (props) => {
     image: "",
     description: "",
   });
-
-  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { caption, tag, select, image, description } = post;
 
   useEffect(() => {
@@ -27,7 +26,7 @@ const AddPost = (props) => {
 
   const addPost = (e) => {
     e.preventDefault();
-    setError(false);
+    console.log("hi");
     if (
       caption === "" ||
       tag === "" ||
@@ -35,9 +34,10 @@ const AddPost = (props) => {
       description === "" ||
       image === ""
     ) {
-      return setError(true);
+      return Toast.error("No field Should be empty");
     }
     const formData = new FormData();
+    setLoading(true);
 
     formData.append("image_", image, image.name);
     formData.append("caption", caption);
@@ -47,9 +47,11 @@ const AddPost = (props) => {
 
     // console.log(image);
     createPost(formData);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
   };
   const handlePostChange = (e) => {
-    setError(false);
     const target = e.target;
     const value = target.value;
     const name = target.name;
@@ -111,12 +113,8 @@ const AddPost = (props) => {
               className="auth-btn"
               value="Add Post"
               onClick={addPost}
+              disabled={loading}
             />
-            {error ? (
-              <div className="error-div">
-                <p>No field should be empty</p>
-              </div>
-            ) : null}
           </form>
           <div className="addpost-container-div">
             <h2>ifeoma</h2>

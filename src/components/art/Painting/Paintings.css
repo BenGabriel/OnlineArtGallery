@@ -14,7 +14,7 @@
   width: 60%;
 }
 .painting-second-container .painting-image-container {
-  margin-top: 40px;
+  margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -183,7 +183,7 @@
     width: 30%;
   }
   .painting-second-container {
-    width: 80%;
+    width: 95%;
   }
   .artitem-artdetails .artitem-image-container button {
     padding: 6px;

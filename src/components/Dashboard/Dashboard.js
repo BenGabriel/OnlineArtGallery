@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { Container } from "./Helper";
 import "./Dashboard.css";
+import Loader from "../Loader";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import AuthContext from "../../context/AuthContext/AuthContext";
 
@@ -9,6 +10,9 @@ const Dashboard = () => {
 
   useEffect(() => {
     getArtist();
+    return () => {
+      getArtist();
+    };
   }, []);
 
   return (
@@ -18,18 +22,22 @@ const Dashboard = () => {
           <h2>Welcome Back</h2>
         </div>
         <div className="dashboard-mid">
-          {artist.posts.map((image) => (
-            <div key={image.id} className="dasboard-image-container">
-              <Link to={`/dashboard/${image.id}`} className="dashboard-content">
-                <div className="img-bx">
-                  <img src={image.image} alt="image" />
-                </div>
-                {/* <div className="dashboard-image-btn">
-                  <button>Delete</button>
-                </div> */}
-              </Link>
-            </div>
-          ))}
+          {artist === null ? (
+            <Loader />
+          ) : (
+            artist.posts.map((image) => (
+              <div key={image.id} className="dasboard-image-container">
+                <Link
+                  to={`/dashboard/${image.id}`}
+                  className="dashboard-content"
+                >
+                  <div className="img-bx">
+                    <img src={image.image} alt="image" />
+                  </div>
+                </Link>
+              </div>
+            ))
+          )}
         </div>
       </div>
     </Container>

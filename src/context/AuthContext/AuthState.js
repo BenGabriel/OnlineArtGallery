@@ -4,6 +4,7 @@ import AuthReducer from "./AuthReducer";
 import { GET_USER, LOGIN_SUCCESS, LOGOUT } from "../Type";
 import axios from "axios";
 import { Toast, URL } from "../../components/Dashboard/Helper";
+
 const AuthState = (props) => {
   const initialState = {
     userAuth: null,

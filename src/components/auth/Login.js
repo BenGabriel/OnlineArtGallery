@@ -6,6 +6,7 @@ import "./login.css";
 
 const Login = (props) => {
   const { userAuth, loginUser } = useContext(AuthContext);
+  console.log(userAuth, "userrrrrrrrrrrrr");
   const [user, setUser] = useState({
     username: "",
     password: "",
@@ -21,7 +22,7 @@ const Login = (props) => {
     if (userAuth) {
       props.history.push("/dashboard");
     }
-  }, [userAuth, props.history]);
+  });
 
   const submit = (e) => {
     e.preventDefault();

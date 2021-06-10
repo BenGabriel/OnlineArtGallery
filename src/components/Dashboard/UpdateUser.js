@@ -183,6 +183,7 @@ const UpdateUser = () => {
                 value="update user"
                 className="auth-btn"
                 onClick={(e) => handleUpdate(e)}
+                disabled={loading}
               />
               {loading ? <Loader /> : null}
             </div>

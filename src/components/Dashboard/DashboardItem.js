@@ -10,7 +10,7 @@ const DashboardItem = (props) => {
   const postid = props.match.params.id;
 
   const [postData, setPostData] = useState(null);
-  const [comment, setComment] = useState(null);
+  const [comment, setComment] = useState("");
   const [loading, setLoading] = useState(false);
 
   const getSinglePost = async () => {
