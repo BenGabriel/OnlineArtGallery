@@ -79,7 +79,7 @@ const DashboardItem = (props) => {
         ) : (
           <>
             <div className="dashboarditem-mid-image">
-              <img src={postData.image} />
+              <img src={postData.image} alt="" />
               <div className="dashboarditem-mid-details">
                 <div className="dashboarditem-mid-det">
                   <div>

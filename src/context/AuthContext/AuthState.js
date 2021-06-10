@@ -4,7 +4,6 @@ import AuthReducer from "./AuthReducer";
 import { GET_USER, LOGIN_SUCCESS, LOGOUT } from "../Type";
 import axios from "axios";
 import { Toast, URL } from "../../components/Dashboard/Helper";
-import setToken from "../../components/routes/SetToken";
 const AuthState = (props) => {
   const initialState = {
     userAuth: null,
@@ -46,12 +45,6 @@ const AuthState = (props) => {
   const getArtist = async () => {
     const token = await localStorage.getItem("token");
     console.log(token);
-    const config = {
-      mode: "no-cors",
-      headers: {
-        Authorization: `Token ${token}`,
-      },
-    };
     try {
       const res = await axios.get(`${URL}/users/me/`, {
         headers: {

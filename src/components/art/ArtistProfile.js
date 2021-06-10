@@ -43,7 +43,7 @@ const ArtistProfile = (props) => {
         ) : (
           <>
             <div className="artist-details">
-              <img src={image1} />
+              <img src={image1} alt="" />
               <div className="artist-det">
                 <p>Username: {artistData.username}</p>
                 <p>
@@ -58,7 +58,7 @@ const ArtistProfile = (props) => {
               {artistData.posts.map((image) => (
                 <div key={image.id} className="painting-image-holder">
                   <Link to={`/art/${image.id}`}>
-                    <img src={image.image} />
+                    <img src={image.image} alt="" />
                   </Link>
                   <div className="likes-comment">
                     <p onClick={() => controlClick(image.id)}>

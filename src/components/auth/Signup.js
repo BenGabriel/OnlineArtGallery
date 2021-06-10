@@ -138,7 +138,7 @@ const Signup = () => {
       }),
     })
       .then((res) => {
-        if (res.status == 400) {
+        if (res.status === 400) {
           Toast.error("User Already Exist");
           console.log(res);
         } else {
@@ -156,10 +156,6 @@ const Signup = () => {
     // history.push("/login");
   };
 
-  const errorStyle = {
-    marginTop: "10px",
-    color: "red",
-  };
   return (
     <Div>
       <div className="form-holder"></div>

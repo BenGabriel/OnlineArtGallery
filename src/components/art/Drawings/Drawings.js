@@ -36,7 +36,7 @@ const Drawings = () => {
             drawing.map((image) => (
               <div key={image.id} className="painting-image-holder">
                 <Link to={`/art/${image.id}`}>
-                  <img src={image.image} />
+                  <img src={image.image} alt="" />
                 </Link>
                 <div className="likes-comment">
                   <p onClick={() => controlClick(image.id)}>
