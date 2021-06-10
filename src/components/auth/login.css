@@ -1,0 +1,97 @@
+.form-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.form {
+  background: white;
+  width: 32%;
+  height: 500px;
+  padding: 60px 30px 30px;
+  border-radius: 6px;
+  box-shadow: 0px 0px 10px #da7fcb;
+}
+.form p {
+  color: gray;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+.form h2 {
+  margin-top: 20px;
+  margin-bottom: 28px;
+  text-align: center;
+  font-size: 23px;
+}
+.form-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.label {
+  margin: 10px 6px;
+}
+input {
+  height: 35px;
+  border: 1px solid #b5b4b4;
+  border-radius: 6px;
+  outline: none;
+  padding: 6px;
+}
+.auth-btn {
+  width: 30%;
+  margin-top: 30px;
+  border: none;
+  padding: 10px;
+  background-color: #bf30e9;
+  color: white;
+  border-radius: 6px;
+  font-size: 12px;
+}
+.auth-btn:hover {
+  background-color: #64c6e9;
+}
+
+.form .accountToCreate {
+  margin-top: 50px;
+}
+
+@media only screen and (max-width: 550px) {
+  .form {
+    width: 85%;
+  }
+  .auth-btn {
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .form {
+    width: 55%;
+  }
+}
+@media only screen and (max-width: 619px) {
+  .form {
+    width: 65%;
+  }
+}
+@media only screen and (max-width: 460px) {
+  .form {
+    width: 68%;
+    height: 400px;
+  }
+  .form p {
+    font-size: 13px;
+  }
+  .form h2 {
+    font-size: 20px;
+  }
+  .label {
+    font-size: 15px;
+  }
+  .form .accountToCreate {
+    margin-top: 20px;
+  }
+}

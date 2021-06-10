@@ -1,0 +1,75 @@
+.updateuser-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.updateuser-container .updateuser-container-mid {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.updateuser-container .updateuser-container-mid .updateuser-form {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  padding: 35px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px #e3a0e8;
+  background-color: #fff;
+  height: 650px;
+}
+.error-input {
+  border: 1px solid red;
+}
+.updateuser-container .updateuser-container-mid .updateuser-form label {
+  margin: 10px 10px;
+  text-transform: capitalize;
+}
+.updateuser-container .updateuser-container-mid .updateuser-form .auth-btn {
+  margin-top: 0px;
+}
+@media only screen and (max-width: 920px) {
+  .updateuser-container .updateuser-container-mid .updateuser-form {
+    width: 70%;
+    padding: 35px;
+  }
+
+  .updateuser-container .updateuser-container-mid .updateuser-form h2 {
+    font-size: 23px;
+    text-align: center;
+    margin: 8px 0;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .updateuser-container .updateuser-container-mid .updateuser-form {
+    width: 90%;
+    padding: 35px;
+    padding-bottom: 20px;
+  }
+
+  .updateuser-container .updateuser-container-mid .updateuser-form h2 {
+    font-size: 20px;
+    text-align: center;
+    margin: 10px 0;
+  }
+}
+@media only screen and (max-width: 415px) {
+  .updateuser-container .updateuser-container-mid .updateuser-form {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .updateuser-container .updateuser-container-mid .updateuser-form h2 {
+    font-size: 18px;
+    text-align: center;
+    margin: 10px 0;
+  }
+  .updateuser-container .updateuser-container-mid .updateuser-form label {
+    font-size: 14px;
+  }
+}

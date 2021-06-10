@@ -1,0 +1,112 @@
+.dashboard-overall {
+  height: 100vh;
+}
+.dashboard-top {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+}
+.dashboard-mid {
+  padding: 50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: transparent;
+}
+.dasboard-image-container {
+  width: 23%;
+  margin: 6px;
+  height: 300px;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: 0.2s;
+  position: relative;
+  box-shadow: 0px 0px 5px gray;
+  background-color: white;
+}
+.dasboard-image-container:hover {
+  z-index: 1;
+  transform: scale(1.02);
+}
+.dasboard-image-container .img-bx {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.dasboard-image-container .img-bx img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.dasboard-image-container .img-bx::before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #da83e1;
+  mix-blend-mode: multiply;
+  opacity: 0;
+  transition: 0.2s;
+  z-index: 1;
+}
+.dasboard-image-container:hover .img-bx:before {
+  opacity: 1;
+}
+/* .dasboard-image-container .dashboard-content {
+  position: absolute;
+  left: 0;
+  top: 0;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  z-index: 1;
+  cursor: pointer;
+} */
+/* .dasboard-image-container:hover .dashboard-image-btn button {
+  transform: translateY(0);
+  transition: 0.3s;
+} */
+
+@media only screen and (max-width: 916px) {
+  .dasboard-image-container {
+    width: 31%;
+  }
+}
+@media only screen and (max-width: 725px) {
+  .dashboard-top {
+    padding: 20px;
+  }
+  .dashboard-top h2 {
+    font-size: 16px;
+  }
+  .dashboard-mid {
+    padding: 30px;
+  }
+  .dasboard-image-container {
+    width: 45%;
+  }
+}
+@media only screen and (max-width: 510px) {
+  .dashboard-top {
+    padding: 20px;
+  }
+  .dashboard-top h2 {
+    font-size: 16px;
+  }
+  .dashboard-mid {
+    padding: 30px;
+  }
+  .dasboard-image-container {
+    width: 90%;
+  }
+}
