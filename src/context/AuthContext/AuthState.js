@@ -20,7 +20,7 @@ const AuthState = (props) => {
     };
     try {
       const res = await axios.post(
-        "http://ifeomasart.herokuapp.com/api/auth/token/login/",
+        "https://ifeomasart.herokuapp.com/api/auth/token/login/",
         userData,
         config
       );

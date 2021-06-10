@@ -18,7 +18,7 @@ export const Div = (props) => {
   );
 };
 
-export const URL = "http://ifeomasart.herokuapp.com/api/v1";
+export const URL = "https://ifeomasart.herokuapp.com/api/v1";
 
 export const Toast = {
   error: (msg) => {
