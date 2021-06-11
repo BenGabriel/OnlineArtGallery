@@ -18,12 +18,8 @@ import AuthState from "./context/AuthContext/AuthState";
 import ArtItem from "./components/art/ArtItem";
 import ArtistProfile from "./components/art/ArtistProfile";
 import PrivateRoute from "./components/routes/PrivateRoute";
-import { useEffect } from "react";
 
 function App() {
-  useEffect(() => {
-    localStorage.removeItem("token");
-  }, []);
   return (
     <AuthState>
       <ArtistState>

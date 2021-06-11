@@ -7,14 +7,18 @@ import Comment from "./Comment";
 import ArtistContext from "../context/ArtistContext/ArtistContext";
 import Loader from "./Loader";
 import Search from "./Search";
+import AuthContext from "../context/AuthContext/AuthContext";
 
-const Main = () => {
+const Main = (props) => {
   const { getPost, post } = useContext(ArtistContext);
+  const { userAuth } = useContext(AuthContext);
   const [rnum, setRum] = useState(false);
   const [commentId, setCommentId] = useState("");
 
   useEffect(() => {
-    console.log("hi from main");
+    if (localStorage.token) {
+      props.history.push("/dashboard");
+    }
     getPost();
   }, []);
 

@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { Container, Toast } from "./Helper";
 import "./AddPost.css";
 import ArtistContext from "../../context/ArtistContext/ArtistContext";
+import Loader from "../Loader";
 
 const AddPost = (props) => {
   const { createPost, clearPost, postState } = useContext(ArtistContext);
@@ -49,7 +50,7 @@ const AddPost = (props) => {
     createPost(formData);
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 30000);
   };
   const handlePostChange = (e) => {
     const target = e.target;
@@ -108,18 +109,23 @@ const AddPost = (props) => {
             />
             <label>Add Image</label>
             <input type="file" onChange={handleFileChange} />
-            <input
-              type="submit"
-              className="auth-btn"
-              value="Add Post"
-              onClick={addPost}
-              disabled={loading}
-            />
+            {loading ? (
+              <div style={{ marginTop: "40px" }}>
+                <Loader />
+              </div>
+            ) : (
+              <input
+                type="submit"
+                className="auth-btn"
+                value="Add Post"
+                onClick={addPost}
+                disabled={loading}
+              />
+            )}
           </form>
           <div className="addpost-container-div">
-            <h2>ifeoma</h2>
-            <p>lorem tags isupm diefis</p>
-            <p>lorem tags isupm diefis</p>
+            <h2>Ifeoma</h2>
+            <p>Add a post to inspire the world</p>
           </div>
         </div>
       </div>

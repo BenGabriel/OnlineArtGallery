@@ -121,6 +121,10 @@
 .sidebar li:hover {
   background-color: #bf30e9;
 }
+
+.sidebar .back {
+  background-color: #bf30e9;
+}
 .sidebar li span {
   position: relative;
   left: -170px;

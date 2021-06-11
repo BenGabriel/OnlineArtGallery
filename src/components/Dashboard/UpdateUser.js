@@ -12,12 +12,12 @@ const UpdateUser = () => {
   // console.log(artist);
 
   const [update, setUpdate] = useState({
-    firstname: artist.first_name,
-    lastname: artist.last_name,
-    email: artist.email,
-    username: artist.username,
-    phone: artist.phone_number,
-    location: artist.city,
+    firstname: artist ? artist.first_name : "",
+    lastname: artist ? artist.last_name : "",
+    email: artist ? artist.email : "",
+    username: artist ? artist.username : "",
+    phone: artist ? artist.phone_number : "",
+    location: artist ? artist.city : "",
     image: "",
   });
 

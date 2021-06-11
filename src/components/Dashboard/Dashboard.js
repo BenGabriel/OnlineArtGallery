@@ -10,9 +10,6 @@ const Dashboard = () => {
 
   useEffect(() => {
     getArtist();
-    return () => {
-      localStorage.removeItem("token");
-    };
   }, []);
 
   return (

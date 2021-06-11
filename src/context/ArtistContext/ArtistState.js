@@ -39,6 +39,7 @@ const ArtistState = (props) => {
         Authorization: `Token ${token}`,
       },
     };
+    console.log("rdd");
     try {
       const res = await axios.post(`${URL}/posts/`, post, config);
       dispatch({
@@ -48,7 +49,7 @@ const ArtistState = (props) => {
       Toast.success("Art work successfully added");
       getPost();
     } catch (err) {
-      console.log(err.response);
+      console.log(err);
     }
   };
 

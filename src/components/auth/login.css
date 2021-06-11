@@ -81,15 +81,17 @@ input {
   .form {
     width: 68%;
     height: 400px;
+    padding-top: 30px;
   }
   .form p {
     font-size: 13px;
   }
   .form h2 {
-    font-size: 20px;
+    font-size: 17px;
+    margin-bottom: 18px;
   }
   .label {
-    font-size: 15px;
+    font-size: 13px;
   }
   .form .accountToCreate {
     margin-top: 20px;
