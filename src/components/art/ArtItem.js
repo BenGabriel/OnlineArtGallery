@@ -32,6 +32,47 @@ const ArtItem = (props) => {
     setCommentId(id);
     setRum(!rnum);
   };
+
+  const fetchFile = async () => {
+    // const res = await axios.get(`${postData.image}`, {
+    //   responseType: "blob",
+    // });
+    // .then(response => {
+    //     const url = window.URL.createObjectURL(new Blob([response.data]));
+    //     const link = document.createElement("a");
+    //     link.href = url;
+    //     link.setAttribute(
+    //         "download",
+    //         `${this.props.file.name}.${this.props.file.mime}`
+    //     );
+    //     document.body.appendChild(link);
+    //     link.click();
+    // });\
+    // console.log(res);
+    fetch(`${postData.image}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/pdf",
+      },
+    })
+      .then((response) => response.blob())
+      .then((blob) => {
+        // Create blob link to download
+        const url = window.URL.createObjectURL(new Blob([blob]));
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", `FileName.jpg`);
+
+        // Append to html link element page
+        document.body.appendChild(link);
+
+        // Start download
+        link.click();
+
+        // Clean up and remove the link
+        link.parentNode.removeChild(link);
+      });
+  };
   return (
     <div className="painting-container art-item">
       <div className="artitem-contianer">
@@ -67,13 +108,15 @@ const ArtItem = (props) => {
             <div className="artitem-image-container">
               <img src={postData.image} alt="" />
               <div className="likes-comment">
-                <button>
+                <button onClick={fetchFile}>
+                  {/* <Link to={postData.image} target="_blank"> */}
                   Download{" "}
                   <FaDownload
                     color={"white"}
                     size={15}
                     style={{ paddingTop: "4px" }}
                   />
+                  {/* </Link> */}
                 </button>
                 <button onClick={() => controlClick(postData.id)}>
                   Comment{" "}
