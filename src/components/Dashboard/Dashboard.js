@@ -12,6 +12,10 @@ const Dashboard = () => {
     getArtist();
   }, []);
 
+  // const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  // array.sort((a, b) => 0.5 - Math.random());
+
+  // console.log(array);
   return (
     <Container>
       <div className="dashboard-overall">

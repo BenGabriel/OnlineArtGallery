@@ -35,19 +35,21 @@ const Sculpture = () => {
           {sculpture === null ? (
             <Loader />
           ) : (
-            sculpture.map((image) => (
-              <div key={image.id} className="painting-image-holder">
-                <Link to={`/art/${image.id}`}>
-                  <img src={image.image} alt="" />
-                </Link>
-                <div className="likes-comment">
-                  <p onClick={() => controlClick(image.id)}>
-                    <FaRegComment color={"white"} size={14} />
-                  </p>
-                  <p onClick={() => controlClick(image.id)}>comment</p>
+            sculpture
+              .sort((a, b) => 0.5 - Math.random())
+              .map((image) => (
+                <div key={image.id} className="painting-image-holder">
+                  <Link to={`/art/${image.id}`}>
+                    <img src={image.image} alt="" />
+                  </Link>
+                  <div className="likes-comment">
+                    <p onClick={() => controlClick(image.id)}>
+                      <FaRegComment color={"white"} size={14} />
+                    </p>
+                    <p onClick={() => controlClick(image.id)}>comment</p>
+                  </div>
                 </div>
-              </div>
-            ))
+              ))
           )}
         </div>
         {rnum ? (
