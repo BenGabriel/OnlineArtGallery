@@ -1,11 +1,17 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Container, Toast } from "./Helper";
+import { Container, Toast, URL } from "./Helper";
 import "./AddPost.css";
 import ArtistContext from "../../context/ArtistContext/ArtistContext";
 import Loader from "../Loader";
+import AuthContext from "../../context/AuthContext/AuthContext";
+import axios from "axios";
 
 const AddPost = (props) => {
   const { createPost, clearPost, postState } = useContext(ArtistContext);
+  const { artist } = useContext(AuthContext);
+
+  console.log(artist);
+
   const [post, setPost] = useState({
     caption: "",
     tag: "",
@@ -52,6 +58,7 @@ const AddPost = (props) => {
       setLoading(false);
     }, 30000);
   };
+
   const handlePostChange = (e) => {
     const target = e.target;
     const value = target.value;
@@ -70,65 +77,90 @@ const AddPost = (props) => {
     });
   };
 
+  const subscribe = async () => {
+    const token = await localStorage.getItem("token");
+    try {
+      const res = await axios.get(`${URL}/subscribe/`, {
+        headers: {
+          Authorization: `Token ${token}`,
+        },
+      });
+
+      window.location.replace(`${res.data.payment_link}`);
+      console.log(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <Container>
-      <div className="addpost-container">
-        <div className="addpost-container-mid">
-          <form className="addpost-container-form">
-            <h2>Add Post</h2>
+      {artist === null ? (
+        <Loader />
+      ) : artist.is_subcribed ? (
+        <div className="addpost-container">
+          <div className="addpost-container-mid">
+            <form className="addpost-container-form">
+              <h2>Add Post</h2>
 
-            <label>Caption</label>
-            <input
-              type="text"
-              name="caption"
-              value={caption}
-              onChange={handlePostChange}
-            />
-            <label>Categories</label>
-            <select name="select" value={select} onChange={handlePostChange}>
-              <option value="drawing">Drawings</option>
-              <option value="painting">Paintings</option>
-              <option value="sculpture">Sculpture</option>
-              <option value="photography">Photography</option>
-              <option value="print">Prints</option>
-            </select>
-            <label>description</label>
-            <input
-              type="text"
-              name="description"
-              value={description}
-              onChange={handlePostChange}
-            />
-            <label>Tags</label>
-            <input
-              type="text"
-              name="tag"
-              placeholder="Tags, Name"
-              value={tag}
-              onChange={handlePostChange}
-            />
-            <label>Add Image</label>
-            <input type="file" onChange={handleFileChange} />
-            {loading ? (
-              <div style={{ marginTop: "40px" }}>
-                <Loader />
-              </div>
-            ) : (
+              <label>Caption</label>
               <input
-                type="submit"
-                className="auth-btn"
-                value="Add Post"
-                onClick={addPost}
-                disabled={loading}
+                type="text"
+                name="caption"
+                value={caption}
+                onChange={handlePostChange}
               />
-            )}
-          </form>
-          <div className="addpost-container-div">
-            <h2>Ifeoma</h2>
-            <p>Add a post to inspire the world</p>
+              <label>Categories</label>
+              <select name="select" value={select} onChange={handlePostChange}>
+                <option value="drawing">Drawings</option>
+                <option value="painting">Paintings</option>
+                <option value="sculpture">Sculpture</option>
+                <option value="photography">Photography</option>
+                <option value="print">Prints</option>
+              </select>
+              <label>description</label>
+              <input
+                type="text"
+                name="description"
+                value={description}
+                onChange={handlePostChange}
+              />
+              <label>Tags</label>
+              <input
+                type="text"
+                name="tag"
+                placeholder="Tags, Name"
+                value={tag}
+                onChange={handlePostChange}
+              />
+              <label>Add Image</label>
+              <input type="file" onChange={handleFileChange} />
+              {loading ? (
+                <div style={{ marginTop: "40px" }}>
+                  <Loader />
+                </div>
+              ) : (
+                <input
+                  type="submit"
+                  className="auth-btn"
+                  value="Add Post"
+                  onClick={addPost}
+                  disabled={loading}
+                />
+              )}
+            </form>
+            <div className="addpost-container-div">
+              <h2>Ifeoma</h2>
+              <p>Add a post to inspire the world</p>
+            </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <div className="subscribe">
+          <p>Please subscribe to Continue</p>
+          <button onClick={subscribe}>Subscribe</button>
+        </div>
+      )}
     </Container>
   );
 };

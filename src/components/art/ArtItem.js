@@ -61,7 +61,7 @@ const ArtItem = (props) => {
         const url = window.URL.createObjectURL(new Blob([blob]));
         const link = document.createElement("a");
         link.href = url;
-        link.setAttribute("download", `FileName.jpg`);
+        link.setAttribute("download", `ifeomaArt.jpg`);
 
         // Append to html link element page
         document.body.appendChild(link);

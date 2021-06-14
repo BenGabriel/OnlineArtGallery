@@ -18,6 +18,9 @@ import AuthState from "./context/AuthContext/AuthState";
 import ArtItem from "./components/art/ArtItem";
 import ArtistProfile from "./components/art/ArtistProfile";
 import PrivateRoute from "./components/routes/PrivateRoute";
+import ForgotPassword from "./components/auth/ForgotPassword";
+import Email from "./components/auth/Email";
+import Redirect from "./components/Redirect";
 
 function App() {
   return (
@@ -34,8 +37,11 @@ function App() {
               <Route path="/photography" component={Photography} />
               <Route path="/paintings" component={Paintings} />
               <Route path="/signup" component={Signup} />
+              <Route path="/enterEmail" component={Email} />
+              <Route path="/resetPassword" component={ForgotPassword} />
               <Route path="/art/:id" component={ArtItem} />
               <Route path="/artist/:id" component={ArtistProfile} />
+              <Route path="/redirect" component={Redirect} />
               <PrivateRoute path="/addpost" component={AddPost} />
               <PrivateRoute path="/updateuser" component={UpdateUser} />
               <PrivateRoute path="/dashboard" exact component={Dashboard} />
