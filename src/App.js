@@ -41,7 +41,7 @@ function App() {
               <Route path="/resetPassword" component={ForgotPassword} />
               <Route path="/art/:id" component={ArtItem} />
               <Route path="/artist/:id" component={ArtistProfile} />
-              <Route path="/redirect" component={Redirect} />
+              <PrivateRoute path="/redirect" component={Redirect} />
               <PrivateRoute path="/addpost" component={AddPost} />
               <PrivateRoute path="/updateuser" component={UpdateUser} />
               <PrivateRoute path="/dashboard" exact component={Dashboard} />
