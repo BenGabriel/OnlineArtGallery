@@ -31,6 +31,7 @@ const Redirect = (props) => {
         console.log(data);
         if (data.detail === "Transaction failed") {
           Toast.error("Transaction Failed");
+          props.history.push("/addpost");
         } else {
           Toast.success("Transaction Failed");
           props.history.push("/addpost");
