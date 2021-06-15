@@ -130,18 +130,17 @@ const Signup = () => {
         password,
       }),
     })
-      .then((res) => {
-        if (res.status === 400) {
-          Toast.error("User Already Exist");
-          console.log(res);
-        } else {
-          res.json();
-        }
-      })
+      .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        Toast.success("Account Created");
-        history.push("/login");
+        if (data.username[0] === "A user with that username already exists.") {
+          // console.log(data.username[0]);
+          Toast.error("User Already Exist");
+        } else {
+          // console.log(typeof data.username[0]);
+          Toast.success("Account Created");
+          history.push("/login");
+        }
       })
       .catch((err) => console.log(err));
 
