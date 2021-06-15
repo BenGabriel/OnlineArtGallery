@@ -8,8 +8,8 @@ const Redirect = (props) => {
   const tx_ref = params.get("tx_ref");
   const transaction_id = params.get("transaction_id");
 
-  console.log(status, tx_ref, transaction_id);
-  console.log(window.location.search);
+  // console.log(status, tx_ref, transaction_id);
+  // console.log(window.location.search);
 
   const subscribe = async () => {
     const token = await localStorage.getItem("token");
@@ -29,8 +29,12 @@ const Redirect = (props) => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        Toast.success("Transaction Successfull");
-        props.history.push("/addpost");
+        if (data.detail === "Transaction failed") {
+          Toast.error("Transaction Failed");
+        } else {
+          Toast.success("Transaction Failed");
+          props.history.push("/addpost");
+        }
       })
       .catch((err) => {
         console.log(err);
