@@ -6,7 +6,7 @@ import "./login.css";
 
 const Login = (props) => {
   const { userAuth, loginUser } = useContext(AuthContext);
-  console.log(userAuth, "userrrrrrrrrrrrr");
+  // console.log(userAuth, "userrrrrrrrrrrrr");
   const [user, setUser] = useState({
     username: "",
     password: "",

@@ -63,15 +63,8 @@ const Signup = () => {
   };
 
   const submit = (e) => {
-    const {
-      firstname,
-      lastname,
-      email,
-      username,
-      phone,
-      password,
-      location,
-    } = user;
+    const { firstname, lastname, email, username, phone, password, location } =
+      user;
     e.preventDefault();
     if (firstname === "") {
       Toast.error("Enter your Firstname");
@@ -162,7 +155,7 @@ const Signup = () => {
       <div className="form-container">
         <form className="form-signup">
           <p onClick={notify}>Welcome</p>
-          <h2>Sign up to Join Ifeoma</h2>
+          <h2>Sign up to Join </h2>
           <div className="form-div">
             <label className="label">Firstname</label>
             <input

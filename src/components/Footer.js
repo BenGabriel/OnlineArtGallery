@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <section className="footer">
       <div className="footer1">
-        <h2>Join Ifeoma</h2>
+        <h2>Join Online Art Gallery</h2>
         <p>
           Download royalty free Art, Share your own Arts as public domain with
           people all over the world

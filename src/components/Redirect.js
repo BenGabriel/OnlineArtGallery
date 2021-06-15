@@ -3,18 +3,18 @@ import { Toast, URL } from "./Dashboard/Helper";
 import Loader from "./Loader";
 
 const Redirect = (props) => {
-  const params = new URLSearchParams(window.location.search);
-  const status = params.get("status");
-  const tx_ref = params.get("tx_ref");
-  const transaction_id = params.get("transaction_id");
+  const params = window.location.search;
+  // const status = params.get("status");
+  // const tx_ref = params.get("tx_ref");
+  // const transaction_id = params.get("transaction_id");
 
   // console.log(status, tx_ref, transaction_id);
-  // console.log(window.location.search);
+  console.log(params);
 
   const subscribe = async () => {
     const token = await localStorage.getItem("token");
 
-    fetch(`${URL}/subscribe/${params}`, {
+    fetch(`${URL}/subscribe/${params}/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -28,7 +28,7 @@ const Redirect = (props) => {
           Toast.error("Transaction Failed");
           props.history.push("/addpost");
         } else {
-          Toast.success("Transaction Failed");
+          Toast.success("Transaction successful");
           props.history.push("/addpost");
         }
       })

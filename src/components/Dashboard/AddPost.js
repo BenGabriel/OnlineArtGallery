@@ -97,7 +97,7 @@ const AddPost = (props) => {
     <Container>
       {artist === null ? (
         <Loader />
-      ) : artist.is_subcribed ? (
+      ) : artist.is_subscribed ? (
         <div className="addpost-container">
           <div className="addpost-container-mid">
             <form className="addpost-container-form">
@@ -150,7 +150,7 @@ const AddPost = (props) => {
               )}
             </form>
             <div className="addpost-container-div">
-              <h2>Ifeoma</h2>
+              <h2>Online Art Gallery</h2>
               <p>Add a post to inspire the world</p>
             </div>
           </div>

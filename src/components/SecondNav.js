@@ -4,13 +4,14 @@ import image from "../images/1.jpg";
 import { AiFillDashboard } from "react-icons/ai";
 import { FaBars, FaPenFancy, FaPlus } from "react-icons/fa";
 import { RiLogoutBoxRLine } from "react-icons/ri";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import AuthContext from "../context/AuthContext/AuthContext";
 import Loader from "./Loader";
 
 const SecondNav = () => {
   const { userAuth, artist, getArtist, logout } = useContext(AuthContext);
 
+  const history = useHistory();
   useEffect(() => {
     getArtist();
   }, [userAuth]);
@@ -19,6 +20,11 @@ const SecondNav = () => {
     color: "white",
     textDecoration: "none",
     fontSize: "14px",
+  };
+
+  const logOut = () => {
+    logout();
+    history.push("/login");
   };
   return (
     <div>
@@ -30,7 +36,7 @@ const SecondNav = () => {
           </span>
         </label>
         <center>
-          <h2>Ifeoma</h2>
+          <h2>Online Art Gallery</h2>
           {artist !== null ? (
             <>
               <img
@@ -66,7 +72,7 @@ const SecondNav = () => {
             <span>Update User</span>
           </Link>
         </li>
-        <li onClick={logout}>
+        <li onClick={logOut}>
           <div className="nav-class">
             <RiLogoutBoxRLine size={18} />
             <span>Logout</span>

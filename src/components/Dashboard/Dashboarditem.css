@@ -87,6 +87,9 @@
   width: 90%;
   padding: 15px 0;
   margin: auto;
+  background-color: white;
+  padding-left: 14px;
+  border-radius: 6px;
 }
 .artist-comment .comment-input {
   width: 100%;

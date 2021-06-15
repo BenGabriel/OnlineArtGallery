@@ -31,7 +31,7 @@ const Nav = () => {
             className="navbar-logo"
             onClick={closeMobileMenu}
           >
-            <h3>Ifeoma</h3>
+            <h3>Online Art Gallery</h3>
           </Link>
           <div className="menu-icon" onClick={handleClick}>
             {click ? <FaTimes size={23} /> : <FaBars size={23} />}
