@@ -14,17 +14,12 @@ const Redirect = (props) => {
   const subscribe = async () => {
     const token = await localStorage.getItem("token");
 
-    fetch(`${URL}/subscribe/`, {
+    fetch(`${URL}/subscribe/${params}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Token ${token}`,
       },
-      body: JSON.stringify({
-        status,
-        tx_ref,
-        transaction_id,
-      }),
     })
       .then((res) => res.json())
       .then((data) => {
