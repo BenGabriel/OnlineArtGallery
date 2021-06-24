@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import "../App.css";
-import image from "../images/1.jpg";
+import image from "../images/user1.png";
 import { AiFillDashboard } from "react-icons/ai";
 import { FaBars, FaPenFancy, FaPlus, FaUser } from "react-icons/fa";
 import { RiLogoutBoxRLine } from "react-icons/ri";

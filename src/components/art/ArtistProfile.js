@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../Main.css";
-import image1 from "../../images/1.jpg";
+import image from "../../images/user1.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Footer from "../Footer";
@@ -43,7 +43,10 @@ const ArtistProfile = (props) => {
         ) : (
           <>
             <div className="artist-details">
-              <img src={artistData.avatar} alt="" />
+              <img
+                src={artistData.avatar === "" ? image : artistData.avatar}
+                alt=""
+              />
               <div className="artist-det">
                 <p>Username: {artistData.username}</p>
                 <p>

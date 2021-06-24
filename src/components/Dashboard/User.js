@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import AuthContext from "../../context/AuthContext/AuthContext";
 import { Container } from "./Helper";
-import image1 from "../../images/1.jpg";
+import image from "../../images/user1.png";
 import "./user.css";
 import { Link } from "react-router-dom";
 import Loader from "../Loader";
@@ -21,7 +21,7 @@ const User = () => {
         ) : (
           <>
             <div className="user-profile-child">
-              <img src={image1} alt="" />
+              <img src={artist.avatar === "" ? image : artist.avatar} alt="" />
             </div>
             <div className="user-profile-child">
               <ul>
