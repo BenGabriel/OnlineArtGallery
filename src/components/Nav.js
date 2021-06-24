@@ -1,12 +1,10 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
 import { FaBars, FaTimes } from "react-icons/fa";
-import AuthContext from "../context/AuthContext/AuthContext";
 import SecondNav from "./SecondNav";
 
 const Nav = () => {
-  const { userAuth } = useContext(AuthContext);
   const token = localStorage.getItem("token");
   const navStyle = {
     color: "white",

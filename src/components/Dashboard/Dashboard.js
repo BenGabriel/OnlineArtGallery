@@ -33,7 +33,7 @@ const Dashboard = () => {
                   className="dashboard-content"
                 >
                   <div className="img-bx">
-                    <img src={image.image} alt="image" />
+                    <img src={image.image} alt="imageS" />
                   </div>
                 </Link>
               </div>

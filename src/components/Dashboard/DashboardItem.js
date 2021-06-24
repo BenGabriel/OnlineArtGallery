@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Container, Toast, URL } from "./Helper";
-import image2 from "../../images/7.jpg";
 import "./Dashboarditem.css";
 import { RiDeleteBinLine, RiSendPlane2Fill } from "react-icons/ri";
 import axios from "axios";

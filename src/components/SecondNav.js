@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import "../App.css";
 import image from "../images/1.jpg";
 import { AiFillDashboard } from "react-icons/ai";
-import { FaBars, FaPenFancy, FaPlus } from "react-icons/fa";
+import { FaBars, FaPenFancy, FaPlus, FaUser } from "react-icons/fa";
 import { RiLogoutBoxRLine } from "react-icons/ri";
 import { Link, useHistory } from "react-router-dom";
 import AuthContext from "../context/AuthContext/AuthContext";
@@ -44,11 +44,11 @@ const SecondNav = () => {
                 width="100"
                 alt=""
               />
-              <h3>
+              {/* <h3>
                 {artist.first_name} {artist.last_name}
               </h3>
               <p>{artist.email}</p>
-              <p>{artist.phone_number}</p>
+              <p>{artist.phone_number}</p> */}
             </>
           ) : (
             <Loader />
@@ -64,6 +64,12 @@ const SecondNav = () => {
           <Link style={navStyle} className="nav-class" to="/addpost">
             <FaPlus size={18} />
             <span>Add</span>
+          </Link>
+        </li>
+        <li>
+          <Link style={navStyle} className="nav-class" to="/user-profile">
+            <FaUser size={18} />
+            <span>Profile</span>
           </Link>
         </li>
         <li>

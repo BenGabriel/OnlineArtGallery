@@ -21,6 +21,7 @@ import PrivateRoute from "./components/routes/PrivateRoute";
 // import ForgotPassword from "./components/auth/ForgotPassword";
 // import Email from "./components/auth/Email";
 import Redirect from "./components/Redirect";
+import User from "./components/Dashboard/User";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
               <PrivateRoute path="/redirect" component={Redirect} />
               <PrivateRoute path="/addpost" component={AddPost} />
               <PrivateRoute path="/updateuser" component={UpdateUser} />
+              <PrivateRoute path="/user-profile" component={User} />
               <PrivateRoute path="/dashboard" exact component={Dashboard} />
               <PrivateRoute
                 path="/dashboard/:id"
