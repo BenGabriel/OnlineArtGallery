@@ -43,7 +43,7 @@ const ArtistProfile = (props) => {
         ) : (
           <>
             <div className="artist-details">
-              <img src={image1} alt="" />
+              <img src={artistData.avatar} alt="" />
               <div className="artist-det">
                 <p>Username: {artistData.username}</p>
                 <p>
