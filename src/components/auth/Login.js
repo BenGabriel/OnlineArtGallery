@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import AuthContext from "../../context/AuthContext/AuthContext";
 import { Div, Toast } from "../Dashboard/Helper";
+import Loader from "../Loader";
 import "./login.css";
 
 const Login = (props) => {
@@ -16,6 +17,8 @@ const Login = (props) => {
     passwordError: false,
   });
 
+  const [loading, setLoading] = useState(false);
+
   const history = useHistory();
 
   useEffect(() => {
@@ -26,6 +29,7 @@ const Login = (props) => {
 
   const submit = (e) => {
     e.preventDefault();
+    setLoading(true);
     const { username, password } = user;
     if (username === "") {
       Toast.error("Enter Your Username");
@@ -84,9 +88,15 @@ const Login = (props) => {
               value={user.password}
               onChange={handlePasswordChange}
             />
-            <button className="auth-btn" onClick={submit}>
-              Log In
-            </button>
+            {loading ? (
+              <div style={{ marginTop: "30px", marginBottom: "-10px" }}>
+                <Loader />
+              </div>
+            ) : (
+              <button className="auth-btn" onClick={submit}>
+                Log In
+              </button>
+            )}
             <p
               className="accountToCreate"
               onClick={() => history.push("/signup")}

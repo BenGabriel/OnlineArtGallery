@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
 import { FaBars, FaTimes } from "react-icons/fa";
 import SecondNav from "./SecondNav";
+import AuthContext from "../context/AuthContext/AuthContext";
 
 const Nav = () => {
   const token = localStorage.getItem("token");
+  const { userAuth } = useContext(AuthContext);
+  console.log(token);
   const navStyle = {
     color: "white",
     textDecoration: "none",
@@ -19,7 +22,7 @@ const Nav = () => {
 
   return (
     <>
-      {token ? (
+      {userAuth ? (
         <SecondNav />
       ) : (
         <nav className="nav">
@@ -48,11 +51,6 @@ const Nav = () => {
             <li onClick={closeMobileMenu}>
               <Link to="/photography" className="nav-links">
                 Photography
-              </Link>
-            </li>
-            <li onClick={closeMobileMenu}>
-              <Link to="/prints" className="nav-links">
-                Prints
               </Link>
             </li>
             <li onClick={closeMobileMenu}>

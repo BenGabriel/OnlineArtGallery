@@ -116,7 +116,6 @@ const AddPost = (props) => {
                 <option value="painting">Paintings</option>
                 <option value="sculpture">Sculpture</option>
                 <option value="photography">Photography</option>
-                <option value="print">Prints</option>
               </select>
               <label>description</label>
               <input

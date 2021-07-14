@@ -26,6 +26,9 @@ const Main = (props) => {
     setCommentId(id);
     setRum(!rnum);
   };
+
+  const newpost =
+    post === null ? post : post.sort((a, b) => 0.2 - Math.random());
   return (
     <>
       <div className="main">
@@ -35,31 +38,29 @@ const Main = (props) => {
             <Search />
           </div>
           <p>
-            Get your Paintings, Drawings, Scultping, Prints and Photography Art
-            from artist all over the world
+            Get your Paintings, Drawings, Scultping, and Photography Art from
+            artist all over the world
           </p>
         </div>
       </div>
       <section className="picture-section">
         <div className="picture-section2" id="image">
-          {post === null ? (
+          {newpost === null ? (
             <Loader />
           ) : (
-            post
-              .sort((a, b) => 0.5 - Math.random())
-              .map((image) => (
-                <div key={image.id} className="painting-image-holder">
-                  <Link to={`/art/${image.id}`}>
-                    <img src={image.image} alt="" />
-                  </Link>
-                  <div className="likes-comment">
-                    <p onClick={() => controlClick(image.id)}>
-                      <FaRegComment color={"white"} size={14} />
-                    </p>
-                    <p onClick={() => controlClick(image.id)}>comment</p>
-                  </div>
+            newpost.map((image) => (
+              <div key={image.id} className="painting-image-holder">
+                <Link to={`/art/${image.id}`}>
+                  <img src={image.image} alt="" />
+                </Link>
+                <div className="likes-comment">
+                  <p onClick={() => controlClick(image.id)}>
+                    <FaRegComment color={"white"} size={14} />
+                  </p>
+                  <p onClick={() => controlClick(image.id)}>comment</p>
                 </div>
-              ))
+              </div>
+            ))
           )}
         </div>
         {rnum ? (

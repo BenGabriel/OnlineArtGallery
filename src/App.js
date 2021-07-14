@@ -2,7 +2,6 @@ import "./App.css";
 import Drawings from "./components/art/Drawings/Drawings";
 import Paintings from "./components/art/Painting/Paintings";
 import Photography from "./components/art/Photography/Photography";
-import Prints from "./components/art/Prints/Prints";
 import Sculpture from "./components/art/Sculpture/Sculpture";
 import Nav from "./components/Nav";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -34,7 +33,6 @@ function App() {
               <Route path="/" exact component={Main} />
               <Route path="/drawings" component={Drawings} />
               <Route path="/sculpture" component={Sculpture} />
-              <Route path="/prints" component={Prints} />
               <Route path="/photography" component={Photography} />
               <Route path="/paintings" component={Paintings} />
               <Route path="/signup" component={Signup} />

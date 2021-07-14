@@ -6,12 +6,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 70%;
+  width: 98%;
   margin: auto;
   margin-top: 30px;
 }
 .painting-second-container input {
-  width: 60%;
+  width: 65%;
 }
 .painting-second-container .painting-image-container {
   margin-top: 50px;
@@ -180,10 +180,7 @@
 }
 @media only screen and (max-width: 1000px) {
   .painting-image-holder {
-    width: 30%;
-  }
-  .painting-second-container {
-    width: 95%;
+    width: 31%;
   }
   .artitem-artdetails .artitem-image-container button {
     padding: 6px;
@@ -199,7 +196,7 @@
     height: 30px;
   }
   .painting-image-holder {
-    width: 40%;
+    width: 45%;
   }
 }
 @media only screen and (max-width: 690px) {
@@ -232,23 +229,23 @@
     overflow: auto;
   }
 }
-@media only screen and (max-width: 460px) {
+@media only screen and (max-width: 550px) {
   .painting-image-holder {
-    width: 70%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
   .painting-image-holder img {
     width: 100%;
-    height: 350px;
+    height: 450px;
   }
   .likes-comment {
     width: 100%;
   }
   .painting-second-container {
     /* border: 1px solid black; */
-    width: 90%;
+    width: 100%;
   }
   .comment-section .comment-comment p {
     margin-top: 5px;

@@ -14,7 +14,7 @@ const UpdateUser = () => {
   const [update, setUpdate] = useState({
     firstname: artist ? artist.first_name : "",
     lastname: artist ? artist.last_name : "",
-    email: artist ? artist.email : "",
+    // email: artist ? artist.email : "",
     username: artist ? artist.username : "",
     phone: artist ? artist.phone_number : "",
     location: artist ? artist.city : "",
@@ -23,15 +23,7 @@ const UpdateUser = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const {
-    firstname,
-    lastname,
-    email,
-    username,
-    phone,
-    image,
-    location,
-  } = update;
+  const { firstname, lastname, username, phone, image, location } = update;
 
   const history = useHistory();
 
@@ -43,7 +35,6 @@ const UpdateUser = () => {
       username === "" ||
       firstname === "" ||
       lastname === "" ||
-      email === "" ||
       location === ""
     ) {
       return Toast.error("Please fill in all the empty fields");
@@ -63,7 +54,6 @@ const UpdateUser = () => {
       body: JSON.stringify({
         first_name: firstname,
         last_name: lastname,
-        email,
         city: location,
         phone_number: phone,
         username,
@@ -149,14 +139,14 @@ const UpdateUser = () => {
                 setUpdate({ ...update, lastname: e.target.value });
               }}
             />
-            <label>email</label>
+            {/* <label>email</label>
             <input
               type="email"
               value={email}
               onChange={(e) => {
                 setUpdate({ ...update, email: e.target.value });
               }}
-            />
+            /> */}
             <label>phone number</label>
             <input
               type="text"

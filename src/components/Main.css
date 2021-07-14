@@ -41,11 +41,12 @@
 .picture-section {
   width: 100%;
   /* margin: auto; */
+  /* border: 1px solid black; */
 }
 .picture-section2 {
   display: flex;
   flex-wrap: wrap;
-  width: 80%;
+  width: 100%;
   margin: auto;
   justify-content: center;
   margin-bottom: 20px;
@@ -69,6 +70,7 @@
   background-color: #6b3fb2;
   width: 100%;
   padding-top: 40px;
+  margin-bottom: 0;
 }
 .footer1 {
   display: flex;
@@ -224,15 +226,11 @@
   .artist-details {
     width: 90%;
   }
-  .picture-section2 {
-    width: 95%;
-    /* border: 1px solid black; */
-  }
   .artist-works {
     width: 90%;
   }
 }
-@media only screen and (max-width: 440px) {
+@media only screen and (max-width: 500px) {
   .image-det {
     width: 70%;
   }
